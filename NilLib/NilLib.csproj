@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+	  <LangVersion>latest</LangVersion>
+	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+	<ItemGroup>
+		<DependencyDll Include="..\..\dependencies\*.dll" />
+	</ItemGroup>
+	<ItemGroup>
+		<Reference Include="@(DependencyDll)">
+			<HintPath>%(DependencyDll.Identity)</HintPath>
+			<Private>false</Private>
+		</Reference>
+	</ItemGroup>
+
+</Project>
