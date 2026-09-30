@@ -10,6 +10,9 @@ using UnityEngine.UI;
 
 namespace NilLib
 {
+/// <summary>
+/// All stuff that can be helpful to use
+/// </summary>
     static public class UsefulHelpers
     {
 
@@ -23,24 +26,56 @@ namespace NilLib
             NilLibPlugin.Instance.StartCoroutine(NilLibPlugin.Instance.DelayCode(codeToDelay, time));
 
         }
-        /// <summary>
-        /// The layers in bb+
-        /// </summary>
         
+        /// <summary>
+        /// All layers in bb+
+        /// </summary>
         public enum Layers
         {
-            Default, // Default
+            /// <summary>
+            /// Default layer
+            /// </summary>
+            Default, 
+            /// <summary>
+            /// Billboard layer
+            /// </summary>
             Billboard,
+            /// <summary>
+            /// Layer for all clickable entities
+            /// </summary>
             ClickableEntities,
+            /// <summary>
+            /// Layer for all Standard entities
+            /// </summary>
             StandardEntities,
+            /// <summary>
+            /// Layer for all Collidable entities
+            /// </summary>
             CollidableEntities,
+            /// <summary>
+            /// Layer for player stuff
+            /// </summary>
             Player,
+            /// <summary>
+            /// Layer for all clickable & collidable entities
+            /// </summary>
             ClickableCollidableEntities,
+            /// <summary>
+            /// Map layer
+            /// </summary>
             Map,
+            /// <summary>
+            /// Subtitles layer
+            /// </summary>
             Subtitles,
-
+            /// <summary>
+            /// Overlay layer
+            /// </summary>
             Overlay
         }
+        /// <summary>
+        /// Sprite assets for textMeshPro
+        /// </summary>
         public enum SpriteAssetSelection
         {
             None,
@@ -57,6 +92,11 @@ namespace NilLib
             return LayerMask.NameToLayer(layer.ToString());
         }
 
+        /// <summary>
+        /// Kills the player
+        /// </summary>
+        /// <param name="npc"> The npc that kills the player</param>
+        /// <param name="Deathsounds">The jumpscare sounds</param>
         static public void KillPlayer(NPC npc, WeightedSoundObject[] Deathsounds) {
             var bald = npc.gameObject.AddComponent<Baldi>();
             bald.enabled = false;

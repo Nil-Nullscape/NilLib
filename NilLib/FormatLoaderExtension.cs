@@ -11,6 +11,11 @@ namespace NilLib
     /// </summary>
     public static class FormatLoaderExtension
     {
+    /// <summary>
+    /// Loads all the rooms in a folder
+    /// </summary>
+    /// <param name="folderPath">The folder with all the rooms</param>
+    /// <returns></returns>
         public static BaldiRoomAsset[] LoadFolderRooms(string folderPath)
         {
             var files = Directory.GetFiles(folderPath);
@@ -20,12 +25,18 @@ namespace NilLib
                 BinaryReader binaryReader = new(File.OpenRead(item));
                 var a = BaldiRoomAsset.Read(binaryReader);
                 d.Add(a);
+                
                 binaryReader.Close();
 
             }
             return d.ToArray();
         }
 
+        /// <summary>
+        /// Loads a room
+        /// </summary>
+        /// <param name="path">Path to room file</param>
+        /// <returns></returns>
         public static BaldiRoomAsset LoadRoom(string path)
         {
 
@@ -34,7 +45,7 @@ namespace NilLib
 
             binaryReader.Close();
 
-
+            
             return a;
         }
     }
